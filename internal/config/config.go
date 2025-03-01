@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"time"
 )
 
 type Config struct {
@@ -15,9 +14,12 @@ type Config struct {
 }
 
 type HTTPServer struct {
-	Address     string        `yaml:"address"`
-	Timeout     time.Duration `yaml:"timeout" env-default:"4s"`
-	IdleTimeout time.Duration `yaml:"idle_timeout" env-default:"60s"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	Addr     string `yaml:"addr"`
+	DBName   string `yaml:"db_name"`
+	Net      string `yaml:"net"`
+	Address  string `yaml:"address"`
 }
 
 func MustConfig() *Config {
