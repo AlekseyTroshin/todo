@@ -6,6 +6,8 @@ import (
 	"github.com/golang-migrate/migrate/v4/database/mysql"
 	"os"
 	"todo/internal/config"
+	"todo/internal/lib/db-cfg"
+	"todo/internal/lib/logger-cfg"
 	"todo/storage"
 
 	_ "github.com/golang-migrate/migrate/v4/source/file"
@@ -15,9 +17,9 @@ func main() {
 	const OP = "cmd.migrate.Main"
 	cfg := config.MustConfig()
 
-	log := config.SetupLogger(cfg.Env)
+	log := logger_cfg.SetupLogger(cfg.Env)
 
-	storageCfg := config.MySQLCfg(cfg)
+	storageCfg := db_cfg.MySQLCfg(cfg)
 	db, err := storage.NewMySQLStorage(storageCfg)
 	if err != nil {
 		log.Error("failed to init store", err)

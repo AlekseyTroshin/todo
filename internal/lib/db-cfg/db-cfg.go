@@ -1,8 +1,11 @@
-package config
+package db_cfg
 
-import "github.com/go-sql-driver/mysql"
+import (
+	"github.com/go-sql-driver/mysql"
+	"todo/internal/config"
+)
 
-func MySQLCfg(cfg *Config) *mysql.Config {
+func MySQLCfg(cfg *config.Config) *mysql.Config {
 	return &mysql.Config{
 		User:   cfg.HTTPServer.User,
 		Passwd: cfg.HTTPServer.Password,

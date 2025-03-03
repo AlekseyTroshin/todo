@@ -7,7 +7,7 @@ import (
 func main() {
 	cfg := config.MustConfig()
 
-	log := config.SetupLogger(cfg.Env)
+	log := logger_cfg.SetupLogger(cfg.Env)
 
 	log.Info("one")
 	log.Debug("two")

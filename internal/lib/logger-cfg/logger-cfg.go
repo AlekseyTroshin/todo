@@ -1,4 +1,4 @@
-package config
+package logger_cfg
 
 import (
 	"log/slog"
